@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    a(href="/", id='header')
+        h1 s4njee
+    - var photoid = parseInt(t)-parseInt(currentphoto.id)
+    h2= photoid 
+    - var nextimage = parseInt(currentphoto.id)-1
+    a(href='./'+nextimage)
+        img(src='../images/_'+currentphoto.id+'.jpg', class="photos")
