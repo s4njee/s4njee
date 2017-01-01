@@ -4,11 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var browserSync = require('browser-sync')
+var browserSync = require('browser-sync');
 var index = require('./routes/index');
 var users = require('./routes/users');
-var photos = require('./routes/photos')
-var post = require('./routes/post')
+var photos = require('./routes/photos');
+var post = require('./routes/post');
+var postroute = require('./routes/postroute');
 var app = express();
 var port = process.env.PORT || 3000;
 
@@ -40,6 +41,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/photos',photos);
 app.use('/post',post);
+app.use('/postroute',postroute)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

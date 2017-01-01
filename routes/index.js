@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
         });
     });
 });
-
+/*
 router.post('/postaction',function(req,res){
     var text = req.body.posttext;
     var d = new Date();
@@ -37,7 +37,7 @@ router.post('/postaction',function(req,res){
         stmt.finalize();
     });
     res.render('success', {post:text, d:date, t:time});
-});
+});*/
 router.get('/otherprojects',function(req,res){
    res.render('otherprojects',{t:totalPhotos}); 
 });

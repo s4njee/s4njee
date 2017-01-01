@@ -21,7 +21,13 @@ block content
         });
         
     div(class="col-md-8")
-        form(method="POST",action='/postaction') 
-            textarea(name='posttext',id='posttext')
-            button(type="submit",class="btn btn-primary") Post
+        if locals.rowid
+            form(method="POST",action='/postroute/'+rowid) 
+                textarea(name='posttext',id='posttext').
+                    #{post}
+                button(type="submit",class="btn btn-primary") Post
+        else
+            form(method="POST",action='/postroute') 
+                textarea(name='posttext',id='posttext').
+                button(type="submit",class="btn btn-primary") Post
 

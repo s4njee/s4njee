@@ -21,6 +21,9 @@ a {
 h1{
     margin:0
 }
+h3{
+    margin-top:0!important;
+}
 .date{
     font-weight:bold;
     margin:0;
@@ -40,4 +43,20 @@ h1{
 }
 .projectheader{
     margin-left:15px;
+}
+.post{
+    margin:0px;
+}
+.time{
+    margin:0px;
+}
+.postdiv
+{
+    margin-bottom:20px;
+}
+.postdiv img{
+    margin-left:-40px;
+}
+.postdiv p{
+    font-size:12px!important;
 }
