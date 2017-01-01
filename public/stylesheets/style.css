@@ -13,3 +13,31 @@ a {
     color:black;
     text-decoration:none;
 }
+.centerDiv{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+h1{
+    margin:0
+}
+.date{
+    font-weight:bold;
+    margin:0;
+}
+.time{
+    font-size:smaller;
+    color:#888;
+}
+.photo{
+    margin-bottom:40px;
+}
+.photoid{
+    margin-top:-52px;
+}
+.glyphicon{
+    margin-right:4px;
+}
+.projectheader{
+    margin-left:15px;
+}

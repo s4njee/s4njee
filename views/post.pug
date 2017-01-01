@@ -1,0 +1,11 @@
+extends layout
+block content
+    script(src="//cdn.tinymce.com/4/tinymce.min.js")
+    script.
+        tinymce.init({ selector:'textarea'  });
+        
+    div(class="col-md-4")
+        form(method="POST",action='/postaction') 
+            textarea(name='posttext',id='posttext')
+            button(type="submit",class="btn btn-primary") Post
+

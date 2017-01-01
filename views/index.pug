@@ -1,0 +1,11 @@
+extends layout
+
+block header
+    include header
+block content
+  h1= title
+  each post in posts
+      div(class="col-md-4")
+          p(class="date")= post.date 
+          p(class="time")= post.time
+          p(class="post")!= post.post
