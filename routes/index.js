@@ -16,12 +16,13 @@ router.get('/', function(req, res, next) {
   visitor.pageview("/").send()
     var posts = {};
     db.serialize(function(){
-        db.all("SELECT post,date,time FROM posts LIMIT 5",function(err, row){
-        posts = row.reverse();
+        db.all("SELECT post,date,time FROM posts ORDER BY rowid DESC LIMIT 5",function(err, row){
+        posts = row;
         res.render('index', { title: 's4njee',t:totalPhotos ,posts:posts});
         });
     });
 });
+
 router.post('/postaction',function(req,res){
     var text = req.body.posttext;
     var d = new Date();
