@@ -29,14 +29,31 @@ router.post('/:id',function(req,res){
     var d = new Date();
     var date = (d.getMonth()+1)+'\/' +(d.getDate())+"\/"+(d.getFullYear());
     var time = d.toTimeString(); 
-    db.serialize(function(){
-        if(!exists){
-            db.run("CREATE TABLE posts (post text, date text, time text)");
-        }
-        var stmt = db.prepare('UPDATE posts SET post = (?), date = (?), time = (?) WHERE rowid = (?)');
-        stmt.run(text,date,time,req.params.id);
-        stmt.finalize();
-    });
-    res.render('success', {post:text, d:date, t:time});
+    if(req.body.action == 'post'){
+
+        db.serialize(function(){
+            if(!exists){
+                db.run("CREATE TABLE posts (post text, date text, time text)");
+            }
+            var stmt = db.prepare('UPDATE posts SET post = (?), date = (?), time = (?) WHERE rowid = (?)');
+            stmt.run(text,date,time,req.params.id);
+            stmt.finalize();
+        });
+       res.render('success', {post:text, d:date, t:time});
+}   
+
+else if(req.body.action == 'delete'){
+
+        db.serialize(function(){
+            if(!exists){
+                db.run("CREATE TABLE posts (post text, date text, time text)");
+            }
+            console.log(req.params.id);
+            var stmt = db.prepare('DELETE FROM posts WHERE rowid = ' + req.params.id);
+            stmt.run();
+            stmt.finalize();
+        });
+       res.render('success', {post:text, d:date, t:time});
+}   
 });
 module.exports = router;
