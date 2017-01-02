@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+var httpProxy = require('http-proxy')
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -10,6 +11,7 @@ var users = require('./routes/users');
 var photos = require('./routes/photos');
 var post = require('./routes/post');
 var postroute = require('./routes/postroute');
+var proxy = httpProxy.createProxyServer();
 var app = express();
 var port = process.env.PORT || 3000;
 
@@ -21,6 +23,15 @@ function listening () {
             files: ['public/**/*.{js,css}'],
             browser: ["google chrome"],
             open:false
+          
+    });
+      var bundle = require('./server/bundle.js')
+    bundle();
+    app.all('/build/*', function (req, res) {
+        proxy.web(req, res, {
+                    target: 'http://localhost:8080'
+                
+        });
           
     });
 
