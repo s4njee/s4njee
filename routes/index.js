@@ -9,7 +9,7 @@ var totalPhotos = 0;
 var ua = require('universal-analytics');
 var visitor = ua('UA-89623333-1')
 fs.readdir('./public/images',function(err,files){
-    totalPhotos = files.length-1;
+    totalPhotos = files.length-2;
 });
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -18,27 +18,17 @@ router.get('/', function(req, res, next) {
     db.serialize(function(){
         db.all("SELECT post,date,time FROM posts ORDER BY rowid DESC LIMIT 5",function(err, row){
         posts = row;
-        res.render('index', { title: 's4njee',t:totalPhotos ,posts:posts});
+        res.render('index', { title: 's4njee',posts:posts});
         });
     });
 });
-/*
-router.post('/postaction',function(req,res){
-    var text = req.body.posttext;
-    var d = new Date();
-    var date = (d.getMonth()+1)+'\/' +(d.getDate())+"\/"+(d.getFullYear());
-    var time = d.toTimeString(); 
-    db.serialize(function(){
-        if(!exists){
-            db.run("CREATE TABLE posts (post text, date text, time text)");
-        }
-        var stmt = db.prepare('INSERT INTO posts VALUES(?,?,?)');
-        stmt.run(text,date,time);
-        stmt.finalize();
-    });
-    res.render('success', {post:text, d:date, t:time});
-});*/
 router.get('/otherprojects',function(req,res){
    res.render('otherprojects',{t:totalPhotos}); 
+});
+router.get('/wiimodchip',function(req,res){
+    var wiiphotos
+    fs.readdir('./public/images/wiimodchip',function(err,files){
+    res.render('wiimodchip',{photos:files});
+    });
 });
 module.exports = router;

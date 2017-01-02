@@ -60,3 +60,9 @@ h3{
 .postdiv p{
     font-size:12px!important;
 }
+#wiiheader{
+    margin-bottom:0px;
+}
+#wiisubheader{
+    margin-top:0px;
+}
