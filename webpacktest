@@ -1,0 +1,39 @@
+var webpack = require('webpack');
+var path = require('path');
+
+module.exports = {
+    devtool: 'inline-source-map',
+    entry:[
+        'node_modules/webpackdev-dev-server/client?localhost',
+        'node_modules/webpack/hot/only-dev-server',
+        'routes'
+        ],
+        output: {
+            path: path.join(__dirname,'public'),
+            filename: 'bundle.js'
+        },
+    resolve:{
+            moduleDirectories: ['node_modules'],
+            extensions: ['', 'js','css']
+        },
+        module: [{
+
+        test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'babel',
+            query:{
+                presets: ['es2015']
+            }
+    }],
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin()
+    ],
+        devServer:{
+            hot: true,
+            proxy: {
+                '*':'localhost:3000'
+            }
+        }
+
+};
