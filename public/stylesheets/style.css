@@ -66,3 +66,7 @@ h3{
 #wiisubheader{
     margin-top:0px;
 }
+ul li{
+    font-size:smaller;
+    margin-bottom:5px;
+}

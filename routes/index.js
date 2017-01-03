@@ -27,7 +27,7 @@ router.get('/otherprojects',function(req,res){
 });
 router.get('/wiimodchip',function(req,res){
     var wiiphotos
-    fs.readdir('./public/images/wiimodchip',function(err,files){
+    fs.readdir('./public/albums/wiimodchip',function(err,files){
     res.render('wiimodchip',{photos:files});
     });
 });
