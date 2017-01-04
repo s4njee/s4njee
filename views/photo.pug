@@ -3,10 +3,9 @@ block header
     include header
 block content
     h1 s4njee
-    - var photoid = parseInt(t)-parseInt(currentphoto.id)
     div(class='centerDiv')
-        h2(class="photoid")= parseInt(currentphoto.id)
+        h2(class="photoid")= parseInt(currentphoto)
     div(class='centerDiv')
-        - var nextimage = parseInt(currentphoto.id)-1
+        - var nextimage = parseInt(currentphoto)-1
         a(href='./'+nextimage,class="photo")
-            img(src='../images/_'+currentphoto.id+'.jpg', class="photos")
+            img(src='../images/_'+currentphoto+'.jpg', class="photos")

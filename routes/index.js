@@ -5,25 +5,27 @@ var file = "blog.db";
 var exists = fs.existsSync(file);
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database(file);
-var totalPhotos = 0;
 var ua = require('universal-analytics');
 var visitor = ua('UA-89623333-1')
-fs.readdir('./public/images',function(err,files){
-    totalPhotos = files.length-2;
-});
 /* GET home page. */
 router.get('/', function(req, res, next) {
   visitor.pageview("/").send()
-    var posts = {};
     db.serialize(function(){
         db.all("SELECT post,date,time FROM posts ORDER BY rowid DESC LIMIT 5",function(err, row){
-        posts = row;
-        res.render('index', { title: 's4njee',posts:posts});
+        res.render('index', { title: 's4njee',posts:row,current:0});
+        });
+    });
+});
+router.get('/:id', function(req, res, next) {
+  visitor.pageview("/").send()
+    db.serialize(function(){
+        db.all("SELECT post,date,time FROM posts WHERE rowid <= "+req.params.id+" ORDER BY rowid DESC LIMIT 5",function(err, row){
+        res.render('index', { title: 's4njee',posts:row, current:req.params.id});
         });
     });
 });
 router.get('/otherprojects',function(req,res){
-   res.render('otherprojects',{t:totalPhotos}); 
+   res.render('otherprojects'); 
 });
 router.get('/wiimodchip',function(req,res){
     var wiiphotos
