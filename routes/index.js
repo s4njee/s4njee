@@ -19,6 +19,9 @@ router.get('/', function(req, res, next) {
 router.get('/otherprojects',function(req,res){
    res.render('otherprojects'); 
 });
+router.get('/About',function(req,res){
+   res.render('about'); 
+});
 router.get('/wiimodchip',function(req,res){
     fs.readdir('./public/albums/wiimodchip',function(err,files){
     res.render('wiimodchip',{photos:files});
