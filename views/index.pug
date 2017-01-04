@@ -10,5 +10,8 @@ block content
               p(class="date")= post.date 
               p(class="time")= post.time
               p(class="post")!= post.post
-  - var oldposts = parseInt(current)+5
-  a(href=oldposts, class="lastposts")  Last 5 Posts
+  if lastpage
+          p(class="post") Last post reached
+  if !lastpage
+      - var oldposts = parseInt(current)+5
+      a(href=oldposts, class="lastposts")  Last 5 Posts
