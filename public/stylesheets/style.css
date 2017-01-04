@@ -75,3 +75,17 @@ ul li{
         margin-left: 30px;
         display: flex;
 }
+.thumb{
+    width:150px;
+
+}
+.albumphoto{
+    width:700px;
+    }
+    .darkbg{
+        background-color:#111;
+    }
+    .lighttext
+    {
+        color:white;
+    }

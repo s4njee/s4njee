@@ -1,0 +1,9 @@
+extends layout
+block header
+    include header
+block content
+    div(class="darkbg")
+        h1(class="lighttext") s4njee
+        div(class='container-fluid')
+        each f in files
+            img(src=f,class="albumphoto")

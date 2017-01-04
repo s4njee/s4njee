@@ -16,21 +16,20 @@ router.get('/', function(req, res, next) {
         });
     });
 });
+router.get('/otherprojects',function(req,res){
+   res.render('otherprojects'); 
+});
+router.get('/wiimodchip',function(req,res){
+    fs.readdir('./public/albums/wiimodchip',function(err,files){
+    res.render('wiimodchip',{photos:files});
+    });
+});
 router.get('/:id', function(req, res, next) {
   visitor.pageview("/").send()
     db.serialize(function(){
         db.all("SELECT post,date,time FROM posts WHERE rowid <= "+req.params.id+" ORDER BY rowid DESC LIMIT 5",function(err, row){
         res.render('index', { title: 's4njee',posts:row, current:req.params.id});
         });
-    });
-});
-router.get('/otherprojects',function(req,res){
-   res.render('otherprojects'); 
-});
-router.get('/wiimodchip',function(req,res){
-    var wiiphotos
-    fs.readdir('./public/albums/wiimodchip',function(err,files){
-    res.render('wiimodchip',{photos:files});
     });
 });
 module.exports = router;

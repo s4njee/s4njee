@@ -10,6 +10,7 @@ var users = require('./routes/users');
 var photos = require('./routes/photos');
 var post = require('./routes/post');
 var postroute = require('./routes/postroute');
+var albums = require('./routes/albums')
 var app = express();
 var port = process.env.PORT || 3000;
 
@@ -36,11 +37,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
 app.use('/users', users);
 app.use('/photos',photos);
 app.use('/post',post);
 app.use('/postroute',postroute)
+app.use('/albums',albums)
+app.use('/', index);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
