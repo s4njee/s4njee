@@ -8,8 +8,12 @@ router.get('/', function(req, res, next) {
   res.render('albums', {d:dirs})
 });
 router.get('/:dir',function(req,res){
- files = fs.readdirSync('./public/albums/'+req.params.dir)
- res.render('photoalbum',{d: req.params.dir, files: files})
+    files = fs.readdir('./public/albums/'+req.params.dir,function(err,files){
+        if(err){
+            res.render('error',{error:err});
+        }
+     res.render('photoalbum',{d: req.params.dir, files: files})
+    })
 })
 
 module.exports = router;

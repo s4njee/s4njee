@@ -20,8 +20,9 @@ router.get('/', function(req, res){
         res.render('photo',{currentphoto:totalPhotos, t:totalPhotos});
 });
 router.get('/:id', function(req, res){
+    let x = isNaN(req.params.id) ? 1 : req.params.id
     visitor.pageview("/photos"+JSON.stringify(req.params)).send()
-    res.render('photo',{currentphoto: req.params.id });
+    res.render('photo',{currentphoto: x});
 }   
 );
 module.exports = router;
