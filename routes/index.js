@@ -9,7 +9,7 @@ var ua = require('universal-analytics');
 var visitor = ua('UA-89623333-1')
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  visitor.pageview("/").send()
+    visitor.pageview("/").send()
     db.serialize(function(){
         db.all("SELECT post,date,time FROM posts ORDER BY rowid DESC LIMIT 5",function(err, row){
         res.render('index', { title: 's4njee',posts:row,current:0});
@@ -17,18 +17,21 @@ router.get('/', function(req, res, next) {
     });
 });
 router.get('/otherprojects',function(req,res){
+   visitor.pageview("/otherprojects").send()
    res.render('otherprojects'); 
 });
 router.get('/About',function(req,res){
+   visitor.pageview("/about").send()
    res.render('about'); 
 });
 router.get('/wiimodchip',function(req,res){
+    visitor.pageview("/wiimodchip").send()
     fs.readdir('./public/albums/wiimodchip',function(err,files){
     res.render('wiimodchip',{photos:files});
     });
 });
 router.get('/:id', function(req, res, next) {
-  visitor.pageview("/").send()
+    visitor.pageview("/"+req.params.id).send()
     db.serialize(function(){
         db.each("SELECT rowid AS id FROM posts ORDER BY rowid DESC LIMIT 1",function(err, row){
             let x = isNaN(req.params.id) ? 0 : req.params.id

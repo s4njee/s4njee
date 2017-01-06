@@ -16,12 +16,12 @@ router.get('/', function(req, res){
             }
             catch(err){}
         }
-        console.log(totalPhotos)
+        visitor.pageview("/photos").send()
         res.render('photo',{currentphoto:totalPhotos, t:totalPhotos});
 });
 router.get('/:id', function(req, res){
     let x = isNaN(req.params.id) ? 1 : req.params.id
-    visitor.pageview("/photos"+JSON.stringify(req.params)).send()
+    visitor.pageview("/photos"+req.params.id).send()
     res.render('photo',{currentphoto: x});
 }   
 );
