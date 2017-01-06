@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
   res.render('albums', {d:dirs})
 });
 router.get('/:dir',function(req,res){
-    visitor.pageview("/albums"+req.params.dir).send()
+    visitor.pageview("/albums/"+req.params.dir).send()
     files = fs.readdir('./public/albums/'+req.params.dir,function(err,files){
         if(err){
             res.render('error',{error:err});

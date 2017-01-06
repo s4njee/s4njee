@@ -21,7 +21,7 @@ router.get('/', function(req, res){
 });
 router.get('/:id', function(req, res){
     let x = isNaN(req.params.id) ? 1 : req.params.id
-    visitor.pageview("/photos"+req.params.id).send()
+    visitor.pageview("/photos/"+req.params.id).send()
     res.render('photo',{currentphoto: x});
 }   
 );
