@@ -14,17 +14,7 @@ var albums = require('./routes/albums')
 var app = express();
 var port = process.env.PORT || 3000;
 
-app.listen(port, listening);
-
-function listening () {
-    browserSync({
-            proxy: 'localhost:' + port,
-            files: ['public/**/*.{js,css}'],
-            browser: ["google chrome"],
-            open:false
-          
-    });
-   }
+app.listen(3001);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
