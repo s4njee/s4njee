@@ -3,7 +3,7 @@ extends layout
 block header
     include header
 block content
-  h1= title
+  h1(class='headertext')= title
   each post in posts
       div(class="container-fluid")
           div(class="col-md-6 col-md-offset-3 postdiv")

@@ -18,8 +18,9 @@ a {
  justify-content: center;
  align-items: center;
 }
-h1{
-    margin:0
+.headertext{
+    margin-left:30px;
+    font-family: 'Merriweather', serif!important;
 }
 h3{
     margin-top:0!important;
@@ -67,7 +68,6 @@ h3{
     margin-top:0px;
 }
 ul li{
-    font-size:smaller;
     margin-bottom:5px;
 }
 .lastposts{
