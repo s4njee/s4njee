@@ -12,7 +12,6 @@ var post = require('./routes/post');
 var postroute = require('./routes/postroute');
 var albums = require('./routes/albums')
 var app = express();
-var port = process.env.PORT || 3000;
 
 app.listen(3001);
 // view engine setup

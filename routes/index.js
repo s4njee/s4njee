@@ -9,7 +9,7 @@ var ua = require('universal-analytics');
 var visitor = ua('UA-89623333-1')
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    visitor.pageview("/").send()
+
     db.serialize(function(){
         db.all("SELECT post,date,time FROM posts ORDER BY rowid DESC LIMIT 5",function(err, row){
         res.render('index', { title: 's4njee',posts:row,current:0});
