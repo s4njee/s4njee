@@ -23,8 +23,10 @@
     "pug-loader": "^2.3.0",
     "serve-favicon": "~2.3.0",
     "sqlite3": "^3.1.8",
-    "tern-node-express": "^0.4.0"
+    "tern-node-express": "^0.4.0",
+    "universal-analytics": "^0.4.8"
   },
+  { "engines" : { "node" : ">=0.10.3 <0.12" } },
   "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
