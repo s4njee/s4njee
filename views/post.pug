@@ -22,6 +22,7 @@ block content
         
     div(class="col-md-8")
         if locals.rowid
+            h3 #{rowid} : #{t}
             form(method="POST",action='/postroute/'+rowid) 
                 textarea(name='posttext',id='posttext').
                     #{post}
