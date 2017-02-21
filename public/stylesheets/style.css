@@ -71,24 +71,42 @@ ul li{
     margin-bottom:5px;
 }
 .lastposts{
-        margin-bottom: 30px;
-        margin-left: 30px;
-        display: flex;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    display: flex;
 }
 .thumb{
     width:150px;
-
 }
 .albumphoto{
-    width:700px;
-    }
-    .darkbg{
-        background-color:#111;
-    }
-    .lighttext
-    {
-        color:white;
-    }
-    .row{
-        margin-bottom:30px;
-    }
+width:50%
+}
+.darkbg{
+    background-color:#111;
+}
+.lighttext
+{
+    color:white;
+}
+.row{
+    margin-bottom:30px;
+}
+.amzn-native-container{
+    margin:auto;
+}
+#chitikaAdBlock-0{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+
+}
+.chitikaAdBlock{
+    padding: 2px!important;
+    border: 1px solid black;
+}
+#chitikaAdBlock-0:before{
+    content:"Ad:";
+    padding-right: 10px;
+    font-weight: bold;
+}
+
