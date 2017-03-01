@@ -13,7 +13,6 @@ var postroute = require('./routes/postroute');
 var albums = require('./routes/albums')
 var app = express();
 
-app.listen(3001);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
