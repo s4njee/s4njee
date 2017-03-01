@@ -6,6 +6,6 @@ block content
     div(class='centerDiv')
         h2(class="photoid")= parseInt(currentphoto)
     div(class='centerDiv')
-        - var nextimage = parseInt(currentphoto)-1
+        - var nextimage = parseInt(currentPhoto)>0 ? parseInt(currentphoto)-1:1
         a(href='./'+nextimage,class="photo")
             img(src='../images/_'+currentphoto+'.jpg', class="photos")
